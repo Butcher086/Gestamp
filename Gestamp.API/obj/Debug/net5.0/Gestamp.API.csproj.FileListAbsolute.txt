@@ -23,7 +23,6 @@ C:\Users\Ruben\Source\Repos\Gestamp\Gestamp.API\bin\Debug\net5.0\runtimes\win\na
 C:\Users\Ruben\Source\Repos\Gestamp\Gestamp.API\bin\Debug\net5.0\runtimes\linux\native\libmongocrypt.so
 C:\Users\Ruben\Source\Repos\Gestamp\Gestamp.API\bin\Debug\net5.0\runtimes\osx\native\libmongocrypt.dylib
 C:\Users\Ruben\Source\Repos\Gestamp\Gestamp.API\bin\Debug\net5.0\runtimes\win\native\mongocrypt.dll
-C:\Users\Ruben\Source\Repos\Gestamp\Gestamp.API\obj\Debug\net5.0\Gestamp.API.csproj.AssemblyReference.cache
 C:\Users\Ruben\Source\Repos\Gestamp\Gestamp.API\obj\Debug\net5.0\Gestamp.API.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Ruben\Source\Repos\Gestamp\Gestamp.API\obj\Debug\net5.0\Gestamp.API.AssemblyInfoInputs.cache
 C:\Users\Ruben\Source\Repos\Gestamp\Gestamp.API\obj\Debug\net5.0\Gestamp.API.AssemblyInfo.cs
@@ -39,3 +38,4 @@ C:\Users\Ruben\Source\Repos\Gestamp\Gestamp.API\obj\Debug\net5.0\Gestamp.API.dll
 C:\Users\Ruben\Source\Repos\Gestamp\Gestamp.API\obj\Debug\net5.0\ref\Gestamp.API.dll
 C:\Users\Ruben\Source\Repos\Gestamp\Gestamp.API\obj\Debug\net5.0\Gestamp.API.pdb
 C:\Users\Ruben\Source\Repos\Gestamp\Gestamp.API\obj\Debug\net5.0\Gestamp.API.genruntimeconfig.cache
+C:\Users\Ruben\Source\Repos\Gestamp\Gestamp.API\obj\Debug\net5.0\Gestamp.API.csproj.AssemblyReference.cache
