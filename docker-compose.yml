@@ -1,0 +1,11 @@
+version: '3.4'
+
+services:
+  mongogestampdb:
+    image: mongo
+
+  gestamp.api:
+    image: ${DOCKER_REGISTRY-}gestampapi
+    build:
+      context: .
+      dockerfile: Gestamp.API\Dockerfile
