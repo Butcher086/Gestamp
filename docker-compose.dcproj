@@ -3,7 +3,7 @@
   <PropertyGroup Label="Globals">
     <ProjectVersion>2.1</ProjectVersion>
     <DockerTargetOS>Windows</DockerTargetOS>
-    <ProjectGuid>c904a585-ea4e-4572-9f9f-3e353eb7a5fd</ProjectGuid>
+    <ProjectGuid>15603203-4552-43cd-b80c-ffe8d6e4d8d7</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
     <DockerServiceUrl>{Scheme}://{ServiceIPAddress}{ServicePort}/swagger</DockerServiceUrl>
     <DockerServiceName>gestamp.api</DockerServiceName>

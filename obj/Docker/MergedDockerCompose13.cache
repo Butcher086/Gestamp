@@ -1,0 +1,52 @@
+services:
+  gestamp.api:
+    build:
+      context: C:\Users\Ruben\Source\Repos\Gestamp
+      dockerfile: Gestamp.API\Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: Gestamp.API
+      target: base
+    container_name: Gestamp.API
+    entrypoint: C:\\remote_debugger\\x64\\msvsmon.exe /noauth /anyuser /silent /nostatus
+      /noclrwarn /nosecuritywarn /nofirewallwarn /nowowwarn /timeout:2147483646 /LogDebuggeeOutputToStdOut
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS: "true"
+      ASPNETCORE_URLS: https://+:443;http://+:80
+      DOTNET_USE_POLLING_FILE_WATCHER: '1'
+      NUGET_FALLBACK_PACKAGES: c:\.nuget\fallbackpackages
+      NUGET_PACKAGES: C:\.nuget\packages
+    image: gestampapi:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath c:\.nuget\packages
+        --additionalProbingPath c:\.nuget\fallbackpackages  "C:\app\bin\Debug\net5.0\Gestamp.API.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: C:\remote_debugger\x64\utils\KillProcess.exe
+        dotnet.exe
+      com.microsoft.visualstudio.debuggee.program: '"C:\Program Files\dotnet\dotnet.exe"'
+      com.microsoft.visualstudio.debuggee.workingdirectory: C:\app
+    links:
+    - mongo
+    ports:
+    - target: 80
+    - target: 443
+    volumes:
+    - C:\Users\Ruben\AppData\Roaming\ASP.NET\Https:C:\Users\ContainerUser\AppData\Roaming\ASP.NET\Https:ro
+    - C:\Users\Ruben\AppData\Roaming\Microsoft\UserSecrets:C:\Users\ContainerUser\AppData\Roaming\Microsoft\UserSecrets:ro
+    - C:\Users\Ruben\Source\Repos\Gestamp\Gestamp.API:C:\app:rw
+    - C:\Users\Ruben\onecoremsvsmon\16.11.1196.0:C:\remote_debugger:ro
+    - C:\Users\Ruben\Source\Repos\Gestamp:C:\src:rw
+    - C:\Program Files\dotnet\sdk\NuGetFallbackFolder:c:\.nuget\fallbackpackages:ro
+    - C:\Users\Ruben\.nuget\packages:c:\.nuget\packages:ro
+  mongo:
+    container_name: mongo
+    environment:
+      MONGO_INITDB_ROOT_PASSWORD: 1234
+      MONGO_INITDB_ROOT_USERNAME: 1234
+    image: mongo
+    ports:
+    - published: 27017
+      target: 27017
+    volumes:
+    - C:\Users\Ruben\Source\Repos\Gestamp\data:/data/db:rw
+version: '3.4'

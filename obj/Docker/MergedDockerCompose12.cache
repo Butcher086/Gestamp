@@ -7,6 +7,8 @@ services:
       ASPNETCORE_ENVIRONMENT: Development
       ASPNETCORE_URLS: https://+:443;http://+:80
     image: gestampapi
+    links:
+    - mongo
     ports:
     - target: 80
     - target: 443
@@ -14,30 +16,14 @@ services:
     - C:\Users\Ruben\AppData\Roaming\ASP.NET\Https:C:\Users\ContainerUser\AppData\Roaming\ASP.NET\Https:ro
     - C:\Users\Ruben\AppData\Roaming\Microsoft\UserSecrets:C:\Users\ContainerUser\AppData\Roaming\Microsoft\UserSecrets:ro
   mongo:
+    container_name: mongo
+    environment:
+      MONGO_INITDB_ROOT_PASSWORD: 1234
+      MONGO_INITDB_ROOT_USERNAME: 1234
     image: mongo
     ports:
     - published: 27017
       target: 27017
-    restart: always
-  mongo-express:
-    depends_on:
-      mongo:
-        condition: service_started
-    image: mongo-express
-    ports:
-    - published: 8081
-      target: 8081
-    restart: always
-  todo-server:
-    build:
-      context: C:\Users\Ruben\Source\Repos\Gestamp
-    depends_on:
-      mongo:
-        condition: service_started
-    environment:
-      MongoDB__Host: mongo
-    ports:
-    - published: 5000
-      target: 80
-    restart: always
+    volumes:
+    - C:\Users\Ruben\Source\Repos\Gestamp\data:/data/db:rw
 version: '3.4'

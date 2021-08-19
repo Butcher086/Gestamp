@@ -1,17 +1,26 @@
 version: '3.4'
 
 services:
-  mongogestampdb:
-    container_name: mongogestampdb
-    
-
   gestamp.api:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=https://+:443;http://+:80      
+      - ASPNETCORE_URLS=https://+:443;http://+:80
     ports:
       - "80"
       - "443"
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:C:\Users\ContainerUser\AppData\Roaming\Microsoft\UserSecrets:ro
       - ${APPDATA}/ASP.NET/Https:C:\Users\ContainerUser\AppData\Roaming\ASP.NET\Https:ro
+    links:
+      - mongo
+
+  mongo:
+    container_name: mongo  
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: 1234
+      MONGO_INITDB_ROOT_PASSWORD: 1234
+    volumes:
+      - ${WEBAPP_STORAGE_HOME}/site:/data/db
+      #- ./data:/data/db
+    ports:
+      - "27017:27017"
